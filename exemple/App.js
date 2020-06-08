@@ -16,7 +16,7 @@ import {
   StatusBar,
   TouchableOpacity
 } from 'react-native';
-import InputCode from '../src/CodeInput';
+import InputCode from '../index2';
 
 const App: () => React$Node = () => {
   return (
@@ -29,11 +29,31 @@ const App: () => React$Node = () => {
             <Text style={styles.title}>ENTER YOUR CODE</Text>
             <Text style={styles.subtitle}>Please enter the code we sent to your phone</Text>
             <InputCode
-              prefilledValue={1234}
-              codeSize={4}
+              prefilledValue={"123467"}
+              codeSize={6}
               onValueChange={(val) => { }}
-              inputStyle={styles.input_style}
+              //inputStyle={styles.input_style}
+              activeStyle={{ borderBottomColor: "#16292f", borderWidth: 1, color: "#fff" }}
             />
+            {/* <View>
+              <InputCode
+                prefilledValue={"1234"}
+                codeSize={5}
+                onValueChange={(val) => { }}
+                inputStyle={{ backgroundColor: "#fff", color: "#000", borderRadius: 20 }}
+                activeStyle={{ backgroundColor: "rgb(240, 240, 240)", color: "#000" }}
+              />
+            </View> */}
+
+            {/* <View>
+              <InputCode
+                codeSize={4}
+                onValueChange={(val) => { }}
+                inputStyle={{ backgroundColor: "transparent", borderBottomWidth: 1, borderColor: "#fff", borderRadius: 0 }}
+                activeStyle={{ borderBottomColor: "#fff", borderBottomWidth: 2, color: "#fff" }}
+              />
+            </View> */}
+
           </View>
           <View style={{ justifyContent: "center", alignItems: "center", height: 100 }}>
             <TouchableOpacity style={{ borderWidth: 1, borderColor: "#FFF", padding: 5, borderRadius: 5 }}>
