@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { View, StyleSheet, Platform } from 'react-native';
 
 
-import AppInput from './AppInput'
+import AppInput from './src/AppInput'
 import { KeyboardTypeOptions } from 'react-native';
 
 interface Props {
@@ -19,7 +20,7 @@ interface Props {
     /**
      * Custom style of each input
      */
-    inputStyle: any,
+    inputStyle?: any,
 
     /**
      * Pre-fill the input width a value
