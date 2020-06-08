@@ -1,5 +1,5 @@
 
-# react-native-code-input
+# react-native-code-textinput
 Input code component for React Native on iOS and Android.
 
 ## Examples
@@ -10,13 +10,13 @@ Input code component for React Native on iOS and Android.
 ## Setup
 
 ```bash
-npm install --save react-native-code-input
+npm install --save react-native-code-textinput
 ```
 
 ## Usage
 
 ```javascript
-import CodeInput from 'react-native-code-input';
+import CodeInput from 'react-native-code-textinput';
 ...
 <CodeInput 
         codeSize={4} 
