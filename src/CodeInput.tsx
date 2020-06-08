@@ -36,7 +36,7 @@ interface State {
     inputs: string[]
 }
 
-export default class InputCode extends React.Component<Props, State> {
+export default class CodeInput extends React.Component<Props, State> {
     inputsRefs: AppInput[]
     constructor(props: Props) {
         super(props);

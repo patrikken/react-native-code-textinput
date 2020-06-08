@@ -1,7 +1,13 @@
 {
-  "name": "CodeInput",
-  "version": "0.0.1",
-  "private": true,
+  "name": "react-native-code-input",
+  "version": "1.0.0",
+  "private": "false",
+  "description": "",
+  "author": {
+    "email": "kenfackjoslin@gmail.com",
+    "name": "Patrik Kenfack"
+  },
+  "displayName": "CodeInput",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
