@@ -3,6 +3,7 @@ import { View, StyleSheet, Platform } from 'react-native';
 
 
 import AppInput from './AppInput'
+import { KeyboardTypeOptions } from 'react-native';
 
 interface Props {
     /**
@@ -19,19 +20,41 @@ interface Props {
      * Custom style of each input
      */
     inputStyle: any,
+
+    /**
+     * Pre-fill the input width a value
+     */
+    prefilledValue?: string,
+
+    /**
+     * Custom keyboardTypeOptions
+     */
+    keyboardTypeOptions?: KeyboardTypeOptions
 }
 
-export default class InputCode extends React.Component<Props, any> {
-    constructor(props) {
+interface State {
+    inputs: string[]
+}
+
+export default class InputCode extends React.Component<Props, State> {
+    inputsRefs: AppInput[]
+    constructor(props: Props) {
         super(props);
+        this.inputsRefs = Array.from({ length: props.codeSize })
+        const values: string[] = Array.from({ length: props.codeSize })
+        console.log(props);
+        if (props.prefilledValue) {
+            const prefilledValue = props.prefilledValue + "";
+            for (let index = 0; index < prefilledValue.length; index++) {
+                if (index < props.codeSize) {
+                    values[index] = prefilledValue.charAt(index)
+                }
+            }
+        }
 
         this.state = {
-            inputs: Array.from({ length: this.props.codeSize })
+            inputs: values
         };
-        this.inputsRefs = Array.from({ length: this.props.codeSize })
-    }
-
-    componentWillMount() {
     }
 
     componentDidMount() {
@@ -48,7 +71,6 @@ export default class InputCode extends React.Component<Props, any> {
     }
 
     async  onKeyPress(event, index, isBackspace = false) {
-        //console.log('event -->', event.nativeEvent.key);
         const size = this.props.codeSize;
         const presetKey = event != null ? event.nativeEvent.key : null;
         let nextId = (index % size) + 1;
@@ -56,40 +78,28 @@ export default class InputCode extends React.Component<Props, any> {
             nextId = (index % size) - 1;
             if (nextId < 0)
                 return
-            /*  let inputs = this.state.inputs;
-             for (var i = index; i > this.state.inputs.length - 1; i++) {
-                 alert(i)
-                 inputs[i] = '';
-             }
-             this.setState({ inputs: inputs }) */
         }
-        //console.log('key', nextId);
+
         if (nextId == size) {
-            nextId = 0 // as array index start from 0
-            //this.inputsRefs[index].childRef.blur();
+            nextId = 0;
             return;
         }
-        /**
-         * enable this code to allow automatical empty of next inputs
-         * 
-          let tmp = this.state.inputs;
-            tmp[nextId] = '';
-            this.setState({ inputs: tmp }, () => {
-            this.inputsRefs[nextId].childRef.focus();
-        })
-         */
 
         this.inputsRefs[nextId].childRef.focus();
     }
 
-    onTextChange = (val, index) => {
+    onTextChange = (val: string, index: number) => {
         if (Platform.OS == "android") {
             this.onKeyPress(null, index, val.length == 0)
         }
         let tmp = this.state.inputs;
-        tmp[index] = val;
-        this.setState({ inputs: tmp })
-        this.props.onValueChange(this.getStringCode())
+        if (val.length > 1) {
+            tmp[index] = val.charAt(val.length - 1);
+        } else {
+            tmp[index] = val;
+        }
+        this.setState({ inputs: tmp });
+        this.props.onValueChange(this.getStringCode());
     }
 
     render() {
@@ -99,15 +109,15 @@ export default class InputCode extends React.Component<Props, any> {
                     return (
                         <AppInput
                             ref={(ref) => this.inputsRefs[index] = ref}
-                            maxLength={1}
+                            //maxLength={1}
                             key={index}
-                            placeholder=''
                             value={item}
                             onChangeText={(val) => this.onTextChange(val, index)}
                             style={[styles.input_code, this.props.inputStyle]}
                             onKeyPress={(event) => this.onKeyPress(event, index)}
-                            keyboardType='numeric'
-                            blurOnSubmit={true} />
+                            keyboardType={this.props.keyboardTypeOptions || 'number-pad'}
+                            blurOnSubmit={true}
+                        />
                     )
                 })}
             </View>
@@ -122,13 +132,3 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     }
 })
-
-/* InputCode.defaultProps = {
-    codeSize: 4,
-}
-InputCode.propTypes = {
-    codeSize: PropTypes.number.isRequired,
-    onValueChange: PropTypes.func.isRequired,
-    inputStyle: PropTypes.object,
-}
- */

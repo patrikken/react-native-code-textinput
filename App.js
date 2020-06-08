@@ -28,7 +28,7 @@ const App: () => React$Node = () => {
             <Text style={styles.name}>[ react-native-code-input ]</Text>
             <Text style={styles.title}>ENTER YOUR CODE</Text>
             <Text style={styles.subtitle}>Please enter the code we sent to your phone</Text>
-            <InputCode codeSize={5} onValueChange={(val) => { }} inputStyle={styles.input_style} />
+            <InputCode prefilledValue={1234} codeSize={4} onValueChange={(val) => { }} inputStyle={styles.input_style} />
           </View>
           <View style={{ justifyContent: "center", alignItems: "center", height: 100 }}>
             <TouchableOpacity style={{ borderWidth: 1, borderColor: "#FFF", padding: 5, borderRadius: 5 }}>

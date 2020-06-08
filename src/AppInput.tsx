@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import {
-    View, StyleSheet, TextInput
+    View, StyleSheet, TextInput, TextInputProps
 } from 'react-native'
 
-interface Props {
+interface Props extends TextInputProps {
     active?: boolean,
-    style: any
+    style: any,
 }
 
 interface State {
-
+    active: boolean
 }
 
 export default class AppInput extends Component<Props, State> {
+    childRef: TextInput | null
     constructor(props) {
         super(props)
         this.state = {
