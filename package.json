@@ -1,7 +1,7 @@
 {
   "name": "react-native-code-input",
   "version": "1.0.3",
-  "private": "false",
+  "private": false,
   "description": "A React Native component for code input.",
   "author": {
     "email": "kenfackjoslin@gmail.com",
