@@ -63,8 +63,8 @@ __tests__/
 package-lock.json
 
 yarn.lock
-./babel.config.js
+babel.config.js
 .watchmanconfig
 index-local.tsx
-
+.prettierrc.js
 src/CodeInput.tsx
