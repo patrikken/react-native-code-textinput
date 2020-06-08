@@ -61,3 +61,5 @@ buck-out/
 /ios/Pods/
 __tests__/
 package-lock.json
+
+yarn.lock
