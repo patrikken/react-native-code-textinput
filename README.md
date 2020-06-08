@@ -18,12 +18,12 @@ npm install --save react-native-code-input
 ```javascript
 import CodeInput from 'react-native-code-input';
 ...
-<DialogInput 
-            codeSize={4} 
-            prefilledValue={"1234"}  
-            onValueChange={(val) => { }} 
-            inputStyle={styles.input_style} >
-</DialogInput>
+<CodeInput 
+        codeSize={4} 
+        prefilledValue={"1234"}  
+        onValueChange={(val) => { }} 
+        inputStyle={styles.input_style} >
+</CodeInput>
 ...
 ```
 ## Properties
