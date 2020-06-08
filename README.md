@@ -1,11 +1,11 @@
 
-# react-native-dialog-input
+# react-native-code-input
 Input code component for React Native on iOS and Android.
 
 ## Examples
 
 ![React Native Code Input](https://res.cloudinary.com/dehgyoegg/image/upload/v1591652476/Screenshot_2020-06-09_at_00.20.05_ifdxdy.png)
-![React Native Code Input Video](https://res.cloudinary.com/dehgyoegg/video/upload/v1591652473/Screen_Recording_2020-06-09_at_00.20.59_rseruc.mov)
+![React Native Code Input Video](https://res.cloudinary.com/dehgyoegg/image/upload/v1591652778/Screen_Recording_2020-06-09_at_00.20.59_yddobh.gif)
 
 ## Setup
 
