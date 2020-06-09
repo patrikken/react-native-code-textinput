@@ -68,3 +68,5 @@ babel.config.js
 index-local.tsx
 .prettierrc.js
 src/CodeInput.tsx
+
+index2.tsx

@@ -16,7 +16,7 @@ import {
   StatusBar,
   TouchableOpacity
 } from 'react-native';
-import InputCode from '../index2';
+import InputCode from '..';
 
 const App: () => React$Node = () => {
   return (
